@@ -1,0 +1,69 @@
+/*
+Autor: Raphael Hoeser
+Datum: 11.07.2017
+Version: 1.1
+
+WordClock LanguagePack EN
+
+*/
+
+wc_addLanguagePack({
+		langCode  : 'EN',
+		letterSet : [
+			['I','T','E','I','S','F','T','L','V','N','E'],
+			['A','C','Q','U','A','R','T','E','R','K','O'],
+			['T','W','E','N','T','Y','F','I','V','E','X'],
+			['H','A','L','F','C','T','E','N','E','T','O'],
+			['P','A','S','T','B','S','E','V','E','N','L'],
+			['O','N','E','T','W','O','T','H','R','E','E'],
+			['F','O','U','R','F','I','V','E','S','I','X'],
+			['N','I','N','E','K','T','W','E','L','V','E'],
+			['E','I','G','H','T','E','L','E','V','E','N'],
+			['T','E','N','P','Y','O','C','L','O','C','K']
+		],
+		timeString: function (h, m, settings = { round: false }){
+			var ret = 'IT IS ';
+			h %= 12;
+			if(h == 0) h = 12;
+			var hourNames = ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT', 'NINE', 'TEN', 'ELEVEN', 'TWELVE']
+			switch ((settings.round ? (Math.round(m / 5) * 5) : Math.floor(m / 5) * 5) % 60) {
+				case 0:
+					ret += hourNames[h+1] + ' OCLOCK';
+					break;
+				case 5:
+					ret += 'FIVE PAST '+hourNames[h-1];
+					break;
+				case 10:
+					ret += 'TEN PAST '+hourNames[h-1];
+					break;
+				case 15:
+					ret += 'A QUARTER PAST '+hourNames[h-1];
+					break;
+				case 20:
+					ret += 'TWENTY PAST '+hourNames[h-1];
+					break;
+				case 25:
+					ret += 'TWENTYFIVE PAST '+hourNames[h-1];
+					break;
+				case 30:
+					ret += 'HALF PAST '+hourNames[h-1];
+					break;
+				case 35:
+					ret += 'TWENTYFIVE TO '+hourNames[h];
+					break;
+				case 40:
+					ret += 'TWENTY TO '+hourNames[h];
+					break;
+				case 45:
+					ret += 'A QUARTER TO '+hourNames[h];
+					break;
+				case 50:
+					ret += 'TEN TO '+hourNames[h];
+					break;
+				case 55:
+					ret += 'FIVE TO '+hourNames[h];
+					break;
+			}
+			return ret;
+		}
+	});
