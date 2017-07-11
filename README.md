@@ -8,5 +8,5 @@ In der Datei wc_main.js kann im wc_settings Objekt folgendes gesetzt werden:
 - round: ob die Uhrzeit auf die nächsten fünf Minuten gerundet werden soll (z.B. 3:38 => Es ist zwanzig vor drei) (default: false)
 - showMinutePoints: ob Minutenpunkte um die Uhr angezeigt werden sollen
 
-# style
+# Style
 Als rootelement werden drei CSS Vars gesetzt, welche das Farbschema vorgeben.
