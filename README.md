@@ -3,32 +3,32 @@ Dies ist eine Browserwordclock, welche unter Chrome getestet und entwickelt wurd
 
 @Copyright: Raphael Höser (Snapstromegon)
 
-# Anmerkungen des Entwicklers
+## Anmerkungen des Entwicklers
 
-## Dieses GIT
+### Dieses GIT
 Dieses GIT ist stets auf dem aktuellen Stand, wird jedoch nicht als Stable gehandelt, daher kann es zu Fehlern aufgrund nicht unterstützter APIs kommen. Ich werde versuchen in nächster Zeit einen Installationsguide hier zu veröffentlichen, kann allerdings keinen Zeitrahmen vorgeben.
 
 Falls Fehler gefunden werden, oder Verbesserungsvorschläge bestehen, bin ich (fast) immer erreichbar.
 
-## Sprachpakete
+### Sprachpakete
 Aktuell unterstützt das System Deutsch und Englisch, kann allerdings durch Sprachpakete erweitert werden.
 Ich freue mich über jedes Sprachpaket, welches ich in dieses GIT übernehmen oder verlinken darf!
 
 
-### Übersicht über verfügbare Sprachpakete
+#### Übersicht über verfügbare Sprachpakete
 | Sprache  | Kürzel | wc_langPack       |
 | :------- |:------:|:----------------- |
 | Deutsch  | DE     | wc_langPack_DE.js |
 | Englisch | EN     | wc_langPack_EN.js |
 
-# Screenshot
+## Screenshot
 
 ![Screenshot unter Google Chrome 59, Win 10 64Bit](./screenshot.png)
 
 
-# Installation
+## Installation
 
-## Dateien
+### Dateien
 
 Es werden für diese Wordclock folgende Dateien benötigt:
 - **./wc.html**  
@@ -40,13 +40,13 @@ Es werden für diese Wordclock folgende Dateien benötigt:
 - **./wc_langPacks/wc_langPack_DE.js**  
   Das Sprachpaket für die Uhr (DE gegen ein gewünschtes, verfügbares Sprachkürzel austauschen).
 
-## Zielsystem
+### Zielsystem
 
 Nun kann auf dem Zielsystem lokal, oder von einem Server **wc.html** aufgerufen werden.
 
-# Customization
+## Customization
 
-## Settings
+### Settings
 In der Datei **wc_main.js** kann im _wc_settings_ Objekt folgendes gesetzt werden:
 - **lang**:  
   die Sprache als Kürzel (default: Deutsch['DE'] | Englisch['EN'])
@@ -57,7 +57,7 @@ In der Datei **wc_main.js** kann im _wc_settings_ Objekt folgendes gesetzt werde
 - **showMinutePoints**:  
   ob Minutenpunkte um die Uhr angezeigt werden sollen (default: true)
 
-### Default Settings
+#### Default Settings
 ```javascript
 var wc_settings = {
   lang: 'DE',
@@ -67,10 +67,10 @@ var wc_settings = {
 }
 ```
 
-## Style
+### Style
 Als root-Element werden drei CSS Vars gesetzt, welche das Farbschema vorgeben und eine, die den Abstand der Minutenpunkte angeben.
 
-### Default Style
+#### Default Style
 ```css
 :root{
   --on-color: #fff;
@@ -80,15 +80,15 @@ Als root-Element werden drei CSS Vars gesetzt, welche das Farbschema vorgeben un
 }
 ```
 
-## Eigene Sprachpakete
+### Eigene Sprachpakete
 
-### Beschreibung
+#### Beschreibung
 Es können eigene Sprachpakete dem _wc_langPacks_ Ordner hinzugefügt werden, diese müssen sich an die Struktur der vorhandenen Pakete halten und folgendes Bereitstellen:
 
-### Registrierung
+#### Registrierung
 Das Sprachpaket muss die Funktion `wc_addLanguagePack(languagePack)` aufrufen, um sich zu registrieren.
 
-### Sprachpaketsinhalte
+#### Sprachpaketsinhalte
 Das Sprachpaket muss drei Attribute enthalten:
 - **langCode**:  
   Der zweistellige Sprachcode
@@ -106,5 +106,5 @@ Das Sprachpaket muss drei Attribute enthalten:
   - **settings**
     Ein Settingsobjekt, welches Informationen über das Verhalten der Uhr enthält, die Nutzung ist optional.
 
-# Inspiration
+## Inspiration
 Die Inspiration für dieses Projekt ergab sich durch eine Anfrage meines Vaters (github: ThomasH-W). In seinem Blog können genauere Installationsguides und weitere Projekte eingesehen werden.
