@@ -1,10 +1,13 @@
 # Wordclock
 Dies ist eine Browserwordclock, welche unter Chrome getestet und entwickelt wurde.
 
+<<<<<<< HEAD
 # Screenshot
 
 ![Screenshot unter Chrome](./screenshot.png)
 
+=======
+>>>>>>> 4403f39f53ff0234ceef39b5c1c437a2bacaa500
 # Settings
 In der Datei wc_main.js kann im wc_settings Objekt folgendes gesetzt werden:
 - lang: die Sprache als Kürzel (default: Deutsch['DE'] | Englisch['EN'])
