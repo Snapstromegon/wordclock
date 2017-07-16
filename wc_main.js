@@ -17,6 +17,8 @@ var wc_settings = {
 
 // ClassNames of HTML Elements
 var wc_wcClassName = 'wc';
+var wc_minutesClassName = wc_wcClassName + '__minutes';
+var wc_minuteDotClassName = wc_wcClassName + '__minute';
 var wc_rowClassName = wc_wcClassName+'__row';
 var wc_letterClassName = wc_rowClassName+'__letter';
 var wc_brightLetterClassName = wc_letterClassName+'--bright';
@@ -125,20 +127,18 @@ function wc_getLanguagePack(langCode){
 }
 
 function wc_setMinuteDots(dots, settings){
-	if(settings.showMinutePoints){
-		for (var i = 1; i <= 4; i++) {
-			document.getElementById("wc__minute__" + i).classList.remove("wc--hidden");
+	for(var clock of document.getElementsByClassName(wc_minutesClassName)){
+		if (settings.showMinutePoints) {
+			clock.classList.remove("wc--hidden");
+			for(var i=1; i<=dots; i++){
+				clock.getElementsByClassName(wc_minuteDotClassName+'__'+i)[0].classList.add("wc__minute--bright");
+			}
+			for (var i = dots+1; i <= 4; i++) {
+				clock.getElementsByClassName(wc_minuteDotClassName+'__' + i)[0].classList.remove("wc__minute--bright");
+			}
 		}
-		for(var i=1; i<=dots; i++){
-			document.getElementById("wc__minute__"+i).classList.add("wc__minute--bright");
-		}
-		for (var i = dots+1; i <= 4; i++) {
-			document.getElementById("wc__minute__" + i).classList.remove("wc__minute--bright");
-		}
-	}
-	else{
-		for (var i = 1; i <= 4; i++) {
-			document.getElementById("wc__minute__" + i).classList.add("wc--hidden");
+		else{
+			clock.classList.add("wc--hidden");
 		}
 	}
 }
