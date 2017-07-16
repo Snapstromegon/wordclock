@@ -21,11 +21,11 @@ WordClock Default Style
 }
 
 .wc__row__letter{
-	color: #333;
+	color: var(--off-color);
 }
 
 .wc__row__letter--bright{
-  color: #fff;
+  color: var(--on-color);
 }
 
 .wc__minute{
@@ -33,11 +33,11 @@ WordClock Default Style
 }
 
 .wc__minute{
-  background-color: #333;
+  background-color: var(--off-color);
 }
 
 .wc__minute--bright{
-  background-color: #fff;
+  background-color: var(--on-color);
 }
 
 /* End: WC Design */
