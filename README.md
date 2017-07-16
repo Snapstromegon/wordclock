@@ -16,7 +16,7 @@ Ich freue mich über jedes Sprachpaket, welches ich in dieses GIT übernehmen od
 
 
 ### Übersicht über verfügbare Sprachpakete
-| Sprache  | Kürzel | wc_langPack          |
+| Sprache  | Kürzel | wc_langPack       |
 | :------- |:------:|:----------------- |
 | Deutsch  | DE     | wc_langPack_DE.js |
 | Englisch | EN     | wc_langPack_EN.js |
