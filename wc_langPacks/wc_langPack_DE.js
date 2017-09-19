@@ -43,25 +43,25 @@ wc_addLanguagePack({
 					ret += 'ZWANZIG NACH '+hourNames[h-1];
 					break;
 				case 25:
-					ret += 'FÜNF VOR HALB '+hourNames[h];
+					ret += 'FÜNF VOR HALB '+hourNames[h%12];
 					break;
 				case 30:
-					ret += 'HALB '+hourNames[h];
+					ret += 'HALB '+hourNames[h%12];
 					break;
 				case 35:
-					ret += 'FÜNF NACH HALB '+hourNames[h];
+					ret += 'FÜNF NACH HALB '+hourNames[h%12];
 					break;
 				case 40:
-					ret += 'ZWANZIG VOR '+hourNames[h];
+					ret += 'ZWANZIG VOR '+hourNames[h%12];
 					break;
 				case 45:
-					ret += 'VIERTEL VOR '+hourNames[h];
+					ret += 'VIERTEL VOR '+hourNames[h%12];
 					break;
 				case 50:
-					ret += 'ZEHN VOR '+hourNames[h];
+					ret += 'ZEHN VOR '+hourNames[h%12];
 					break;
 				case 55:
-					ret += 'FÜNF VOR '+hourNames[h];
+					ret += 'FÜNF VOR '+hourNames[h%12];
 					break;
 			}
 			return ret;
