@@ -49,19 +49,19 @@ wc_addLanguagePack({
 					ret += 'HALF PAST '+hourNames[h-1];
 					break;
 				case 35:
-					ret += 'TWENTYFIVE TO '+hourNames[h];
+					ret += 'TWENTYFIVE TO '+hourNames[h%12];
 					break;
 				case 40:
-					ret += 'TWENTY TO '+hourNames[h];
+					ret += 'TWENTY TO '+hourNames[h%12];
 					break;
 				case 45:
-					ret += 'A QUARTER TO '+hourNames[h];
+					ret += 'A QUARTER TO '+hourNames[h%12];
 					break;
 				case 50:
-					ret += 'TEN TO '+hourNames[h];
+					ret += 'TEN TO '+hourNames[h%12];
 					break;
 				case 55:
-					ret += 'FIVE TO '+hourNames[h];
+					ret += 'FIVE TO '+hourNames[h%12];
 					break;
 			}
 			return ret;
