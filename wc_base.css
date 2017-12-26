@@ -15,6 +15,7 @@ WordClock Default Style
   --off-color: #333;
   --background-color: #000;
   --dot-padding: 4%;
+  --fontSize: 2em;
 }
 
 .wc__row__letter{
@@ -65,6 +66,7 @@ WordClock Default Style
   position: absolute;
   top: 50%;
   left: 50%;
+  font-size: var(--fontSize);
   transform: translate(-50%,-50%);
   flex-direction: column;
   justify-content: space-around;
