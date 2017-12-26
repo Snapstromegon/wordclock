@@ -68,7 +68,7 @@ var wc_settings = {
 ```
 
 ### Style
-Als root-Element werden drei CSS Vars gesetzt, welche das Farbschema vorgeben und eine, die den Abstand der Minutenpunkte angeben.
+Als root-Element werden drei CSS Vars gesetzt, welche das Farbschema vorgeben, eine, die den Abstand der Minutenpunkte angeben und eine, welche die Schriftgröße festlegt.
 
 #### Default Style
 ```css
@@ -77,6 +77,7 @@ Als root-Element werden drei CSS Vars gesetzt, welche das Farbschema vorgeben un
   --off-color: #333;
   --background-color: #000;
   --dot-padding: 4%;
+  --fontSize: 2em;
 }
 ```
 
