@@ -9,7 +9,7 @@ WordClock Main JS
 
 // Settings
 var wc_settings = {
-	lang: 'CH_BERN',
+	lang: 'DE',
 	updateInterval: 1000,
 	round: false,
 	showMinutePoints: true
