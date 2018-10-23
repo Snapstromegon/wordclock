@@ -12,7 +12,8 @@ var wc_settings = {
 	lang: 'DE',
 	updateInterval: 1000,
 	round: false,
-	showMinutePoints: true
+  showMinutePoints: true,
+  stencilMode: false
 }
 
 // ClassNames of HTML Elements
@@ -21,6 +22,7 @@ var wc_minutesClassName = wc_wcClassName + '__minutes';
 var wc_minuteDotClassName = wc_wcClassName + '__minute';
 var wc_rowClassName = wc_wcClassName+'__row';
 var wc_letterClassName = wc_rowClassName+'__letter';
+var wc_stencilLetterClassName = wc_rowClassName+'__stencil';
 var wc_brightLetterClassName = wc_letterClassName+'--bright';
 
 // Vars for the Wordclock (not to be changed)
@@ -109,7 +111,10 @@ function wc_setHTMLLetters(clock,langPack){
 		html_row.classList.add(wc_rowClassName);
 		for(var j=0; j<letters[i].length; j++){
 			var html_letter = document.createElement('span');
-			html_letter.classList.add(wc_letterClassName);
+      html_letter.classList.add(wc_letterClassName);
+      if(wc_settings.stencilMode){
+        html_letter.classList.add(wc_stencilLetterClassName);
+      }
 			html_letter.innerText = letters[i][j];
 			html_row.appendChild(html_letter);
 		}
@@ -131,10 +136,16 @@ function wc_setMinuteDots(dots, settings){
 		if (settings.showMinutePoints) {
 			clock.classList.remove("wc--hidden");
 			for(var i=1; i<=dots; i++){
-				clock.getElementsByClassName(wc_minuteDotClassName+'__'+i)[0].classList.add("wc__minute--bright");
+        clock.getElementsByClassName(wc_minuteDotClassName+'__'+i)[0].classList.add("wc__minute--bright");
+        if(wc_settings.stencilMode){
+          clock.getElementsByClassName(wc_minuteDotClassName+'__'+i)[0].classList.add("wc__minute--stencil");
+        }
 			}
 			for (var i = dots+1; i <= 4; i++) {
-				clock.getElementsByClassName(wc_minuteDotClassName+'__' + i)[0].classList.remove("wc__minute--bright");
+        clock.getElementsByClassName(wc_minuteDotClassName+'__' + i)[0].classList.remove("wc__minute--bright");
+        if(wc_settings.stencilMode){
+          clock.getElementsByClassName(wc_minuteDotClassName+'__'+i)[0].classList.add("wc__minute--stencil");
+        }
 			}
 		}
 		else{

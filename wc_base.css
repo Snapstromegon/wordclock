@@ -30,6 +30,17 @@ WordClock Default Style
   color: var(--on-color);
 }
 
+.wc__row__stencil{
+  background: var(--off-color);
+  display: block;
+  width: calc(var(--fontSize) / 1);
+  height: var(--fontSize);
+}
+
+.wc__row__stencil.wc__row__letter--bright{
+	background: var(--on-color);
+}
+
 .wc__minute{
 	transition: background-color 1s;
 }
@@ -93,21 +104,31 @@ WordClock Default Style
   position: absolute;
 }
 
+.wc__minute--stencil{
+  width: var(--fontSize);
+  height: var(--fontSize);
+  border-radius: 0%;
+}
+
 .wc__minute__1{
   top: var(--dot-padding);
   left: var(--dot-padding);
+  transform: translate(-50%, -50%);
 }
 .wc__minute__2{
   top: var(--dot-padding);
   right: var(--dot-padding);
+  transform: translate(50%, -50%);
 }
 .wc__minute__3{
   bottom: var(--dot-padding);
   right: var(--dot-padding);
+  transform: translate(50%, 50%);
 }
 .wc__minute__4{
   bottom: var(--dot-padding);
   left: var(--dot-padding);
+  transform: translate(-50%, 50%);
 }
 
 /* End: WC Layout */

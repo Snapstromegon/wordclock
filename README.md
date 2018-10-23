@@ -56,6 +56,8 @@ In der Datei **wc_main.js** kann im _wc_settings_ Objekt folgendes gesetzt werde
   ob die Uhrzeit auf die nächsten fünf Minuten gerundet werden soll (z.B. 3:38 => Es ist zwanzig vor drei) (default: false)
 - **showMinutePoints**:  
   ob Minutenpunkte um die Uhr angezeigt werden sollen (default: true)
+- **stencilMode**:  
+  setzt die Uhr in den "Schablonenmodus" - es werden nur helle Felder anstatt der Buchstaben angezeigt, damit man eine Schablone mit den Buchstaben vor den Monitor halten kann (default: false)
 
 #### Default Settings
 ```javascript
@@ -63,7 +65,8 @@ var wc_settings = {
   lang: 'DE',
   updateInterval: 1000,
   round: false,
-  showMinutePoints: true
+  showMinutePoints: true,
+  stencilMode: false
 }
 ```
 
