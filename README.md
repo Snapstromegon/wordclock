@@ -1,65 +1,71 @@
 # Wordclock
-Dies ist eine Browserwordclock, welche unter Chrome getestet und entwickelt wurde.
+
+This is a wordclock designed to run in a browser. It is developed and tested for Chrome, but other browsers work too if they support all necessary features.
 
 @Copyright: Raphael Höser (Snapstromegon)
 
-## Anmerkungen des Entwicklers
+## Developer Notes
 
-### Dieses GIT
-Dieses GIT ist stets auf dem aktuellen Stand, wird jedoch nicht als Stable gehandelt, daher kann es zu Fehlern aufgrund nicht unterstützter APIs kommen. Ich werde versuchen in nächster Zeit einen Installationsguide hier zu veröffentlichen, kann allerdings keinen Zeitrahmen vorgeben.
+### This GIT
 
-Falls Fehler gefunden werden, oder Verbesserungsvorschläge bestehen, bin ich (fast) immer erreichbar.
+If you encouter any bugs or want to improve or contribute, please feel free to do so via issues or PRs.
 
 ### Sprachpakete
-Aktuell unterstützt das System Deutsch und Englisch, kann allerdings durch Sprachpakete erweitert werden.
-Ich freue mich über jedes Sprachpaket, welches ich in dieses GIT übernehmen oder verlinken darf!
 
+If you want to add a languagepack to my system, feel free to add a PR.
 
 #### Übersicht über verfügbare Sprachpakete
-| Sprache  | Kürzel | wc_langPack       |
-| :------- |:------:|:----------------- |
-| Deutsch  | DE     | wc_langPack_DE.js |
-| Englisch | EN     | wc_langPack_EN.js |
+
+| Language       |  Code   | wc_langPack            |
+| :------------- | :-----: | :--------------------- |
+| German         |   DE    | wc_langPack_DE.js      |
+| English        |   EN    | wc_langPack_EN.js      |
+| Dutch          |   NL    | wc_langPack_NL.js      |
+| Swiss German   | DE_SWG  | wc_langPack_DE_SWG.js  |
+| Bernese German | CH_BERN | wc_langPack_CH_BERN.js |
 
 ## Screenshot
 
 ![Screenshot unter Google Chrome 59, Win 10 64Bit](./screenshot.png)
 
-
 ## Installation
 
-### Dateien
+### Files
 
-Es werden für diese Wordclock folgende Dateien benötigt:
+The following files are needed for this clock to run:
+
 - **./wc.html**  
-  Das HTML-Gerüst der Uhr
+  The HTML base for the clock
 - **./wc_main.js**  
-  Die Logik der Uhr
+  Main logik which is not language specific
 - **./wc_base.css**  
-  Layout und Farbschema
-- **./wc_langPacks/wc_langPack_DE.js**  
-  Das Sprachpaket für die Uhr (DE gegen ein gewünschtes, verfügbares Sprachkürzel austauschen).
+  styling of the clock
+- **./wc_langPacks/wc_langPack_[language_code].js**  
+  The Languagepack you want to use
 
-### Zielsystem
+### Displaying System
 
-Nun kann auf dem Zielsystem lokal, oder von einem Server **wc.html** aufgerufen werden.
+Just open **wc.html** to see the wordclock.
 
 ## Customization
 
 ### Settings
-In der Datei **wc_main.js** kann im _wc_settings_ Objekt folgendes gesetzt werden:
+
+In **wc_main.js** you can edit the _wc_settings_ Object with the following attributes:
+
 - **lang**:  
-  die Sprache als Kürzel (default: Deutsch['DE'] | Englisch['EN'])
+  the language code you want to use (default: 'DE')
 - **updateInterval**:  
-  die Updategeschwindigkeit in ms, wie häufig die Uhrzeit aktualisiert werden soll (default: 1000ms)
+  how often the main loop should run and update the clock state (default: every 1000ms)
 - **round**:  
-  ob die Uhrzeit auf die nächsten fünf Minuten gerundet werden soll (z.B. 3:38 => Es ist zwanzig vor drei) (default: false)
+  set this to true, of you want to round the time to the closest five minutes (for usage without the minute points) (default: false)
 - **showMinutePoints**:  
-  ob Minutenpunkte um die Uhr angezeigt werden sollen (default: true)
+  set this to false to hide the minute points (default: true)
 - **stencilMode**:  
-  setzt die Uhr in den "Schablonenmodus" - es werden nur helle Felder anstatt der Buchstaben angezeigt, damit man eine Schablone mit den Buchstaben vor den Monitor halten kann (default: false)
+  this mode only shows bright squares instead of the letters, so you can add a cardboard cutout on the monitor (default: false)
 
 #### Default Settings
+
 ```javascript
 var wc_settings = {
   lang: 'DE',
@@ -67,15 +73,17 @@ var wc_settings = {
   round: false,
   showMinutePoints: true,
   stencilMode: false
-}
+};
 ```
 
 ### Style
-Als root-Element werden drei CSS Vars gesetzt, welche das Farbschema vorgeben, eine, die den Abstand der Minutenpunkte angeben und eine, welche die Schriftgröße festlegt.
+
+The root element sets three css variables, which control the color theme, the minute point distance and the fontsize.
 
 #### Default Style
+
 ```css
-:root{
+:root {
   --on-color: #fff;
   --off-color: #333;
   --background-color: #000;
@@ -84,31 +92,36 @@ Als root-Element werden drei CSS Vars gesetzt, welche das Farbschema vorgeben, e
 }
 ```
 
-### Eigene Sprachpakete
+### Custom Languagepacks
 
-#### Beschreibung
-Es können eigene Sprachpakete dem _wc_langPacks_ Ordner hinzugefügt werden, diese müssen sich an die Struktur der vorhandenen Pakete halten und folgendes Bereitstellen:
+#### Description
 
-#### Registrierung
-Das Sprachpaket muss die Funktion `wc_addLanguagePack(languagePack)` aufrufen, um sich zu registrieren.
+You can add custom language packs to the _wc_langPacks_ folder. Those have to follow the structure of the existing packets and do/provide the following things:
 
-#### Sprachpaketsinhalte
-Das Sprachpaket muss drei Attribute enthalten:
+#### Register
+
+A languagepack has to call the global function `wc_addLanguagePack(languagePack)` to register itself.
+
+#### Languagepack content
+
+A languagpack has to provide the following attributes:
+
 - **langCode**:  
-  Der zweistellige Sprachcode
+  The language code
 - **letterSet**:  
-  Ein zweidimensionales Char-Array, in dem in der ersten Dimension die Zeilen und der zweiten die Elemente der Zeilen gespeichert sind.
-- **timeString**:  
-  Eine Funktion der Form `function(h,m,settings)`, welche folgende Parameter erhält und einen String an Worten zurückgibt, welcher so Wort für Wort von oben links nach unten rechts im letterSet array gefunden werden kann.
-  
-  **Parameter**
+  A two dimensional character array in which the first dimension describes a row and the second the columns in a row.
+- **timeString**:
+  A function in the form of `function(h,m,settings)`, which gets the following parameters and returns a string which words can be found from top left to bottom right in the *letterSet*.
+
+  **Parameters**
 
   - **h**  
-    Aktuelle Stundenzahl im 24h-Format
+    Current hours in 24h-format
   - **m**  
-    Aktuelle Stundenzahl als Zahl zwischen 0 und 59
+    Current minutes between 0 and 59
   - **settings**
-    Ein Settingsobjekt, welches Informationen über das Verhalten der Uhr enthält, die Nutzung ist optional.
+    A Settingsobject, which holds information about the current clock settings.
 
 ## Inspiration
-Die Inspiration für dieses Projekt ergab sich durch eine Anfrage meines Vaters (github: ThomasH-W). In seinem Blog können genauere Installationsguides und weitere Projekte eingesehen werden.
+
+The inspiration for this project was a request my father made (github: ThomasH-W). In his Blog (german) you can find a more detailed install guide and further projects..
