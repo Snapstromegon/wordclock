@@ -40,7 +40,7 @@ The following files are needed for this clock to run:
   Main logik which is not language specific
 - **./wc_base.css**  
   styling of the clock
-- **./wc_langPacks/wc_langPack_[language_code].js**  
+- **./wc\_langPacks/wc\_langPack\_[language_code].js**  
   The Languagepack you want to use
 
 ### Displaying System
@@ -111,7 +111,7 @@ A languagpack has to provide the following attributes:
 - **letterSet**:  
   A two dimensional character array in which the first dimension describes a row and the second the columns in a row.
 - **timeString**:
-  A function in the form of `function(h,m,settings)`, which gets the following parameters and returns a string which words can be found from top left to bottom right in the *letterSet*.
+  A function in the form of `function(h,m,settings)`, which gets the following parameters and returns a string which words can be found from top left to bottom right in the _letterSet_.
 
   **Parameters**
 
