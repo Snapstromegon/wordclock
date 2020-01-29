@@ -10,7 +10,7 @@ WordClock Default Style
 /*@CHARSET "ISO-8859-1";*/
 /* Begin: WC Design --- feel free to change */
 
-:root{
+:root {
   --on-color: #fff;
   --off-color: #333;
   --background-color: #000;
@@ -18,114 +18,111 @@ WordClock Default Style
   --fontSize: 2em;
 }
 
-.wc__row__letter{
-	transition: color 1s;
+.wc__row__letter {
+  transition: color 1s;
 }
 
-.wc__row__letter{
-	color: var(--off-color);
+.wc__row__letter {
+  color: var(--off-color);
 }
 
-.wc__row__letter--bright{
+.wc__row__letter--bright {
   color: var(--on-color);
 }
 
-.wc__row__stencil{
+.wc__row__stencil {
   background: var(--off-color);
   display: block;
   width: calc(var(--fontSize) / 1);
   height: var(--fontSize);
 }
 
-.wc__row__stencil.wc__row__letter--bright{
-	background: var(--on-color);
+.wc__row__stencil.wc__row__letter--bright {
+  background: var(--on-color);
 }
 
-.wc__minute{
-	transition: background-color 1s;
+.wc__minute {
+  transition: background-color 1s;
 }
 
-.wc__minute{
+.wc__minute {
   background-color: var(--off-color);
 }
 
-.wc__minute--bright{
+.wc__minute--bright {
   background-color: var(--on-color);
 }
 
 /* End: WC Design */
 
-
-
 /* !!!WARNING!!! Don't change without thinking from here */
 
 /* Begin: WC Layout (this has to be here) */
 
-
-.wc--hidden{
+.wc--hidden {
   display: none;
 }
 
-.wc__wrapper{
+.wc__wrapper {
   position: relative;
 }
 
-.wc{
-  width: calc(100% - 2*var(--dot-padding));
-  height: calc(100% - 2*var(--dot-padding));
+.wc {
+  width: calc(100% - 2 * var(--dot-padding));
+  height: calc(100% - 2 * var(--dot-padding));
   display: flex;
   position: absolute;
   top: 50%;
   left: 50%;
   font-size: var(--fontSize);
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   flex-direction: column;
   justify-content: space-around;
 }
 
-.wc--lettersOut{
+.wc--lettersOut {
   justify-content: space-between;
 }
 
-.wc__row{
-	width: 100%;
-	display: flex;
-	justify-content: space-around;
+.wc__row {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
-.wc--lettersOut > .wc__row{
+.wc--lettersOut > .wc__row {
   justify-content: space-between;
 }
 
-.wc__minute{
+.wc__minute {
   width: 1vh;
   height: 1vh;
   border-radius: 50%;
   position: absolute;
 }
 
-.wc__minute--stencil{
+.wc__minute--stencil {
   width: var(--fontSize);
   height: var(--fontSize);
   border-radius: 0%;
 }
 
-.wc__minute__1{
+.wc__minute__1 {
   top: var(--dot-padding);
   left: var(--dot-padding);
   transform: translate(-50%, -50%);
 }
-.wc__minute__2{
+.wc__minute__2 {
   top: var(--dot-padding);
   right: var(--dot-padding);
   transform: translate(50%, -50%);
 }
-.wc__minute__3{
+.wc__minute__3 {
   bottom: var(--dot-padding);
   right: var(--dot-padding);
   transform: translate(50%, 50%);
 }
-.wc__minute__4{
+.wc__minute__4 {
   bottom: var(--dot-padding);
   left: var(--dot-padding);
   transform: translate(-50%, 50%);
