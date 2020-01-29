@@ -15,47 +15,46 @@ Ein Webserver ist noch immer ueberfluessig.
 #####
 -->
 
-
 <!DOCTYPE html>
 <html>
-
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="author" content="Raphael Hoeser">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Raphael Hoeser" />
     <title>WordClock Example</title>
     <style>
-
       /* Begin: Base Style (should be done outside) */
 
-		*{
-			margin: 0px;
-			padding: 0px;
-		}
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
 
-		html{
-			background-color: #000;
-      font-family: Calibri;
-		}
-		html, body { height: 100%; }
+      html {
+        background-color: #000;
+        font-family: Calibri;
+      }
+      html,
+      body {
+        height: 100%;
+      }
 
-      .wc__wrapper{
+      .wc__wrapper {
         height: 100%;
         width: 100vh;
         margin: auto;
       }
 
       /* End: Base Style */
-
     </style>
 
-	<!-- The design stylesheet with colors and animations -->
+    <!-- The design stylesheet with colors and animations -->
 
-	<!-- The layout stylesheet for the WordClock -->
-	<link rel="stylesheet" type="text/css" href="wc_base.css" />
+    <!-- The layout stylesheet for the WordClock -->
+    <link rel="stylesheet" type="text/css" href="wc_base.css" />
 
-	<!-- The main script for the WordClock (it will add an init eventlistener on window.load) -->
+    <!-- The main script for the WordClock (it will add an init eventlistener on window.load) -->
     <script src="wc_main.js"></script>
-    
+
     <!-- WC-LanguagePacks they will add themselves to the database and can 
     	be used by changing the var 'wc_language' in the wc_main.js -->
     <script src="wc_langPacks/wc_langPack_DE.js"></script>
@@ -63,12 +62,11 @@ Ein Webserver ist noch immer ueberfluessig.
     <script src="wc_langPacks/wc_langPack_CH_BERN.js"></script>
     <script src="wc_langPacks/wc_langPack_EN.js"></script>
     <script src="wc_langPacks/wc_langPack_NL.js"></script>
-
   </head>
 
   <body>
-
-    <div class="wc__wrapper"> <!-- This element is your Wrapper and the wc element will fit it parents height and width -->
+    <div class="wc__wrapper">
+      <!-- This element is your Wrapper and the wc element will fit it parents height and width -->
       <div class="wc__minutes">
         <div class="wc__minute wc__minute__1"></div>
         <div class="wc__minute wc__minute__2"></div>
@@ -76,14 +74,12 @@ Ein Webserver ist noch immer ueberfluessig.
         <div class="wc__minute wc__minute__4"></div>
       </div>
       <div class="wc">
-      	<!-- 
+        <!-- 
       		-This Element will be recognized by the wc_main.js functions and will be filled with content 
       		-To change classnames goto wc_main.js and change 'wc_wcClassName'. (wc_base.css has to be adjusted)
       		-To switch flexboxes justify-content from space-around to space-between add the css class 'wc--lettersOut' to this element
       	-->
       </div>
     </div>
-
   </body>
-
 </html>
