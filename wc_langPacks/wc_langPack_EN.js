@@ -43,7 +43,7 @@ wc_addLanguagePack({
       (settings.round ? Math.round(m / 5) * 5 : Math.floor(m / 5) * 5) % 60
     ) {
       case 0:
-        ret += hourNames[h + 1] + ' OCLOCK';
+        ret += hourNames[h - 1] + ' OCLOCK';
         break;
       case 5:
         ret += 'FIVE PAST ' + hourNames[h - 1];
