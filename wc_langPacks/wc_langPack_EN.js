@@ -11,6 +11,7 @@ wc_addLanguagePack({
   langCode: 'EN',
   letterSet: [
     ['I', 'T', 'E', 'I', 'S', 'F', 'T', 'L', 'V', 'N', 'E'],
+	['P', 'B', 'G', 'W', 'N', 'E', 'A', 'R', 'L', 'Y', 'B'],
     ['A', 'C', 'Q', 'U', 'A', 'R', 'T', 'E', 'R', 'K', 'O'],
     ['T', 'W', 'E', 'N', 'T', 'Y', 'F', 'I', 'V', 'E', 'X'],
     ['H', 'A', 'L', 'F', 'C', 'T', 'E', 'N', 'E', 'T', 'O'],
@@ -39,6 +40,17 @@ wc_addLanguagePack({
       'ELEVEN',
       'TWELVE'
     ];
+	// m=35;
+	if (((m + 1) % 5) == 0) {
+		ret += 'NEARLY ';
+		m += 1;
+	}
+	
+	if (((m + 2) % 5) == 0) {
+		ret += 'NEARLY ';
+		m += 2;
+	}
+	
     switch (
       (settings.round ? Math.round(m / 5) * 5 : Math.floor(m / 5) * 5) % 60
     ) {
