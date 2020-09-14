@@ -40,15 +40,11 @@ wc_addLanguagePack({
       'ELEVEN',
       'TWELVE'
     ];
-	// m=35;
-	if (((m + 1) % 5) == 0) {
+	// 5+0, 5+1, 5+2 => not nearly
+	// 5+3, 5+4 => nearly
+	if (m  % 5 >= 3) {
 		ret += 'NEARLY ';
-		m += 1;
-	}
-	
-	if (((m + 2) % 5) == 0) {
-		ret += 'NEARLY ';
-		m += 2;
+		m += 2; // Always adding 2 works, because the switch rounds (down) to 5 minute intervals
 	}
 	
     switch (
