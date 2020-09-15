@@ -10,8 +10,8 @@ WordClock LanguagePack EN
 wc_addLanguagePack({
   langCode: 'EN',
   letterSet: [
-    ['I', 'T', 'E', 'I', 'S', 'J', 'U', 'S', 'T', 'N', 'E'],
-    ['W', 'A', 'S', 'W', 'N', 'E', 'A', 'R', 'L', 'Y', 'B'],
+    ['I', 'T', 'E', 'I', 'S', 'Z', 'S', 'J', 'U', 'S', 'T'],
+    ['A', 'F', 'T', 'E', 'R', 'N', 'E', 'A', 'R', 'L', 'Y'],
     ['A', 'C', 'Q', 'U', 'A', 'R', 'T', 'E', 'R', 'K', 'O'],
     ['T', 'W', 'E', 'N', 'T', 'Y', 'F', 'I', 'V', 'E', 'X'],
     ['H', 'A', 'L', 'F', 'C', 'T', 'E', 'N', 'E', 'T', 'O'],
@@ -45,9 +45,9 @@ wc_addLanguagePack({
     // 5+3, 5+4 => nearly
     if (
       (settings.fuzzyTime == 'both' || settings.fuzzyTime == 'after') &&
-      m % 5 <= 2
+      m % 5 <= 2 && m % 5 != 0
     ) {
-      ret += 'JUST WAS ';
+      ret += 'IS JUST AFTER ';
     } else {
       ret += 'IS ';
     }
