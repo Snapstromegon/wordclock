@@ -10,8 +10,8 @@ WordClock LanguagePack EN
 wc_addLanguagePack({
   langCode: 'EN',
   letterSet: [
-    ['I', 'T', 'E', 'I', 'S', 'J', 'U', 'S', 'T', 'N', 'E'],
-    ['W', 'A', 'S', 'W', 'N', 'E', 'A', 'R', 'L', 'Y', 'B'],
+    ['I', 'T', 'E', 'I', 'S', 'Z', 'S', 'J', 'U', 'S', 'T'],
+    ['A', 'F', 'T', 'E', 'R', 'N', 'E', 'A', 'R', 'L', 'Y'],
     ['A', 'C', 'Q', 'U', 'A', 'R', 'T', 'E', 'R', 'K', 'O'],
     ['T', 'W', 'E', 'N', 'T', 'Y', 'F', 'I', 'V', 'E', 'X'],
     ['H', 'A', 'L', 'F', 'C', 'T', 'E', 'N', 'E', 'T', 'O'],
@@ -23,7 +23,7 @@ wc_addLanguagePack({
     ['T', 'E', 'N', 'P', 'Y', 'O', 'C', 'L', 'O', 'C', 'K'],
   ],
   timeString: function (h, m, settings = { round: false, fuzzyTime: 'none' }) {
-    var ret = 'IT ';
+    var ret = 'IT IS ';
     h %= 12;
     if (h == 0) h = 12;
     var hourNames = [
@@ -45,11 +45,9 @@ wc_addLanguagePack({
     // 5+3, 5+4 => nearly
     if (
       (settings.fuzzyTime == 'both' || settings.fuzzyTime == 'after') &&
-      m % 5 <= 2
+      m % 5 <= 2 && m % 5 != 0
     ) {
-      ret += 'JUST WAS ';
-    } else {
-      ret += 'IS ';
+      ret += 'JUST AFTER ';
     }
 
     // 5+0, 5+1, 5+2 => not nearly
