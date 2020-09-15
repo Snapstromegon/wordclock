@@ -23,7 +23,7 @@ wc_addLanguagePack({
     ['T', 'E', 'N', 'P', 'Y', 'O', 'C', 'L', 'O', 'C', 'K'],
   ],
   timeString: function (h, m, settings = { round: false, fuzzyTime: 'none' }) {
-    var ret = 'IT ';
+    var ret = 'IT IS ';
     h %= 12;
     if (h == 0) h = 12;
     var hourNames = [
@@ -47,9 +47,7 @@ wc_addLanguagePack({
       (settings.fuzzyTime == 'both' || settings.fuzzyTime == 'after') &&
       m % 5 <= 2 && m % 5 != 0
     ) {
-      ret += 'IS JUST AFTER ';
-    } else {
-      ret += 'IS ';
+      ret += 'JUST AFTER ';
     }
 
     // 5+0, 5+1, 5+2 => not nearly
