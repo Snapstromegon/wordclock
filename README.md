@@ -63,6 +63,11 @@ In **wc_main.js** you can edit the _wc_settings_ Object with the following attri
   set this to false to hide the minute points (default: true)
 - **stencilMode**:  
   this mode only shows bright squares instead of the letters, so you can add a cardboard cutout on the monitor (default: false)
+- **fuzzyTime**:  
+  this adds an additional part to the wording like 01:32 -> "it just was half past one" or 01:28 -> "it is nearly half past one". This comes up, so it always shows the closest 5 minute interval. (default: none)
+  possible values are none, before (for nearly), after (for just was) and both.
+  This feature is only implemented for the following language packs:
+    - EN
 
 #### Default Settings
 
@@ -72,7 +77,8 @@ var wc_settings = {
   updateInterval: 1000,
   round: false,
   showMinutePoints: true,
-  stencilMode: false
+  stencilMode: false,
+  fuzzyTime: 'none',
 };
 ```
 

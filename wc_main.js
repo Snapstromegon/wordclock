@@ -13,7 +13,8 @@ var wc_settings = {
   updateInterval: 1000,
   round: false,
   showMinutePoints: true,
-  stencilMode: false
+  stencilMode: false,
+  fuzzyTime: "both", // Can be none, before (for nearly...), after (just was...) or both
 };
 
 // ClassNames of HTML Elements
