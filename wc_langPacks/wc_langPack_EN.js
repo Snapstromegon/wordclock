@@ -56,6 +56,7 @@ wc_addLanguagePack({
       (settings.fuzzyTime == 'both' || settings.fuzzyTime == 'before') &&
       m % 5 >= 3
     ) {
+	  if (m > 55) { h = (h + 1) % 12; if (h ==0) h=12;};
       ret += 'NEARLY ';
     }
 
