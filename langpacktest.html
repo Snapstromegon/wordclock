@@ -1,0 +1,51 @@
+<html>
+<head>
+<script src="wc_main.js"></script>
+<script src="wc_langPacks/wc_langPack_EN.js"></script>
+</head>
+<body onload = testLangPack()>
+<script>
+
+
+function testLangPack() {
+	var outTime = "<TABLE border='0'>\n";
+	var hour = 0;
+	var min = 0;
+	var wc_settings = {
+		lang: 'EN',
+		updateInterval: 1000,
+		round: false,
+		showMinutePoints: true,
+		stencilMode: false,
+		fuzzyTime: "both" // Can be none, before (for nearly...), after (just was...) or both
+	};
+
+	var pack = wc_getLanguagePack(wc_settings.lang);
+	outTime += "<TH>Hour</TH><TH>Minute</TH><TH>Output</TH></TR>\n";
+	var date = new Date();
+	
+	
+	for (hour = 0 ; hour < 24 ; hour++) {
+		for (min = 0; min < 60 ; min++) {
+		outTime += "<TR>";
+		var timestring = pack.timeString(
+			hour,
+			min,
+			wc_settings
+			);
+	
+		outTime += "<TR><TD>" + hour + "</TD>";
+		outTime += "<TD>" + min + "</TD>";
+		outTime += "<TD>" + pack.timeString(hour, min, wc_settings) + "</TD></TR>";
+		}
+	}
+	
+	outTime += "</TABLE>\n";
+		
+	document.getElementById("test").innerHTML = outTime;
+}
+
+</script>
+<p id="test"></p>
+</body>
+</html>
