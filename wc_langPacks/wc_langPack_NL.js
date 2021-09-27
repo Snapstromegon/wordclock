@@ -55,7 +55,7 @@ wc_addLanguagePack({
         ret += 'KWART OVER ' + hourNames[h - 1];
         break;
       case 20:
-        ret += 'TIEN VOOR HALF ' + hourNames[h - 1];
+        ret += 'TIEN VOOR HALF ' + hourNames[h == 12 ? 0 : h];
         break;
       case 25:
         ret += 'VIJF VOOR HALF ' + hourNames[h % 12];
@@ -70,7 +70,7 @@ wc_addLanguagePack({
         ret += 'TIEN OVER HALF ' + hourNames[h % 12];
         break;
       case 45:
-        ret += 'KWART OVER ' + hourNames[h % 12];
+        ret += 'KWART VOOR ' + hourNames[h % 12];
         break;
       case 50:
         ret += 'TIEN VOOR ' + hourNames[h % 12];
