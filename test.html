@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testseite</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+
+      th,td {
+        border: 1px solid #000;
+      }
+    </style>
+    <script type="module">
+      const languagepacks = [
+        'wc_langPacks/wc_langPack_CH_BERN.js',
+        'wc_langPacks/wc_langPack_DE_SWG.js',
+        'wc_langPacks/wc_langPack_DE.js',
+        'wc_langPacks/wc_langPack_EN.js',
+        'wc_langPacks/wc_langPack_NL.js',
+        'wc_langPacks/wc_langPack_NL-min.js',
+      ];
+
+      function renderTable(langs) {
+        let res = '';
+        for (let h = 0; h < 24; h++) {
+          for (let m = 0; m < 60; m++) {
+            res += `<tr><td>${h.toString().padStart(2, '0')}:${m
+              .toString()
+              .padStart(2, '0')}</td>`;
+            for (const lang of langs) {
+              const pack = languagePackOpjects.get(lang);
+              res += `<td>${pack.timeString(h, m)}</td><td>${renderedTime(
+                pack,
+                h,
+                m
+              )}</td>`;
+            }
+            res += '</tr>';
+          }
+        }
+        return res;
+      }
+
+      function renderedTime(pack, h, m) {
+        const timeString = pack.timeString(h, m);
+        const lines = pack.letterSet.map((line) => line.join(''));
+        const renderedWords = timeString.split(' ');
+        let res = [];
+        let currentLine = lines.shift();
+        for (const renderedWord of renderedWords) {
+          while (!currentLine.includes(renderedWord) && lines.length > 0) {
+            currentLine = lines.shift();
+          }
+          let start = currentLine.indexOf(renderedWord);
+          if(start != -1) {
+            res.push(renderedWord);
+            currentLine = currentLine.slice(start + renderedWord.length);
+          }
+        }
+        let rendered = res.join(" ");
+
+        if(rendered != timeString) {
+          rendered += "❌"
+        }
+
+        return rendered
+      }
+
+      async function main() {
+        for (const languagepack of languagepacks) {
+          await loadScript(languagepack);
+        }
+
+        const langs = [...languagePackOpjects.keys()];
+        const tableContent = `
+        <thead>
+          <tr>
+            <th rowspan=2>Time</th>
+            ${langs.map((lang) => `<th colspan=2>${lang}</th>`).join('')}
+          </tr>
+          <tr>
+            ${langs.map((lang) => `<th>Wanted</th><th>Rendered</th>`).join('')}
+          </tr>
+        </thead>
+        <tbody>
+          ${renderTable(langs)}  
+        </tbody>
+        `;
+        table.innerHTML = tableContent;
+      }
+
+      const languagePackOpjects = new Map();
+      const table = document.querySelector('table');
+
+      function wc_addLanguagePack(pack) {
+        let langCode = pack.langCode;
+        if (languagePackOpjects.has(langCode)) {
+          langCode += '-dup';
+        }
+        languagePackOpjects.set(langCode, pack);
+      }
+      window.wc_addLanguagePack = wc_addLanguagePack;
+
+      function loadScript(src) {
+        return new Promise((res, rej) => {
+          const script = document.createElement('script');
+          script.onload = res;
+          script.src = src;
+          document.head.appendChild(script);
+        });
+      }
+      main();
+    </script>
+  </head>
+  <body>
+    <h1>WordClock Test</h1>
+    <p>This page is for testing the output of a languagepack</p>
+    <table></table>
+  </body>
+</html>
