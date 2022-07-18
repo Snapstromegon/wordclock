@@ -8,7 +8,7 @@ WordClock LanguagePack NL
 */
 
 wc_addLanguagePack({
-  langCode: 'NL-min',
+  langCode: 'NL',
   letterSet: 
 [
     ['H', 'E', 'T', 'K', 'I', 'S', 'A', 'E', 'E', 'N', 'V', 'I', 'J', 'F'],
@@ -16,13 +16,13 @@ wc_addLanguagePack({
     ['Z', 'E', 'S', 'V', 'I', 'E', 'R', 'T', 'W', 'A', 'A', 'L', 'F', 'P'],
     ['E', 'L', 'F', 'D', 'E', 'R', 'T', 'I', 'E', 'N', 'A', 'C', 'H', 'T'],
     ['D', 'R', 'I', 'E', 'V', 'E', 'E', 'R', 'T', 'I', 'E', 'N', 'E', 'N'],
-    ['K', 'W', 'A', 'R', 'T', 'E', 'T', 'W', 'I', 'N', 'T', 'I', 'G', 'E'],
-    ['Z', 'O', 'V', 'E', 'R', 'V', 'O', 'O', 'R', 'U', 'H', 'A', 'L', 'F'],
+    ['K', 'W', 'A', 'R', 'T', 'E', 'O', 'V', 'E', 'R', 'T', 'I', 'G', 'E'],
+    ['V', 'O', 'O', 'R', 'R', 'E', 'L', 'F', 'R', 'U', 'H', 'A', 'L', 'F'],
     ['T', 'W', 'E', 'E', 'V', 'Z', 'E', 'S', 'E', 'N', 'E', 'G', 'E', 'N'],
-    ['E', 'L', 'F', 'E', 'E', 'N', 'S', 'V', 'I', 'E', 'R', 'B', 'O', 'K'],
+    ['E', 'L', 'F', 'E', 'E', 'N', 'V', 'I', 'E', 'R', 'O', 'V', 'E', 'R'],
     ['Z', 'E', 'V', 'E', 'N', 'T', 'I', 'E', 'N', 'S', 'V', 'I', 'J', 'F'],
+    ['T', 'W', 'A', 'A', 'L', 'F', 'F', 'I', 'Z', 'U', 'U', 'R', 'F', 'L'],
     ['K', 'D', 'R', 'I', 'E', 'O', 'V', 'E', 'R', 'R', 'A', 'C', 'H', 'T'],
-    ['N', 'A', 'G', 'H', 'A', 'L', 'F', 'I', 'Z', 'U', 'U', 'R', 'F', 'L'],
     ['B', 'V', 'O', 'O', 'R', 'F', 'L', 'N', 'A', 'S', 'M', 'N', 'D', 'E'],
     ['O', 'P', 'X', 'Z', 'M', 'I', 'D', 'D', 'A', 'G', '?', 'V', 'C', 'H'],
 ],
@@ -100,16 +100,16 @@ wc_addLanguagePack({
         ret += 'VEERTIEN VOOR HALF ' + hourNames[h == 12 ? 0 : h];
         break;
       case 17:
-        ret += 'DERTIEN VOOR HALF ' + hourNames[h == 12 ? 0 : h];
+        ret += 'DERTIEN VOOR HALF ' + hourNames[h % 12];
         break;
       case 18:
-        ret += 'TWAALF VOOR HALF ' + hourNames[h == 12 ? 0 : h];
+        ret += 'TWAALF VOOR HALF ' + hourNames[h % 12];
         break;
       case 19:
-        ret += 'ELF VOOR HALF ' + hourNames[h == 12 ? 0 : h];
+        ret += 'ELF VOOR HALF ' + hourNames[h % 12];
         break;
       case 20:
-        ret += 'TIEN VOOR HALF ' + hourNames[h == 12 ? 0 : h];
+        ret += 'TIEN VOOR HALF ' + hourNames[h % 12];
         break;
       case 21:
         ret += 'NEGEN VOOR HALF ' + hourNames[h % 12];

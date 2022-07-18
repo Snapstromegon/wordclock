@@ -58,7 +58,7 @@
           let start = currentLine.indexOf(renderedWord);
           if(start != -1) {
             res.push(renderedWord);
-            currentLine = currentLine.slice(start + renderedWord.length);
+            currentLine = currentLine.slice(start + renderedWord.length + 1);
           }
         }
         let rendered = res.join(" ");
