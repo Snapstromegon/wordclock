@@ -24,6 +24,10 @@ wc_addLanguagePack({
   ],
   timeString: function (h, m, settings = { round: false, fuzzyTime: 'none' }) {
     var ret = 'IT IS ';
+
+    if(settings.round && m>57) {
+      h+=1;
+    }
     h %= 12;
     if (h == 0) h = 12;
     var hourNames = [

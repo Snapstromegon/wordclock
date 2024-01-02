@@ -24,7 +24,7 @@
         'wc_langPacks/wc_langPack_NL-min.js',
       ];
 
-      function renderTable(langs) {
+      function renderTable(langs, round) {
         let res = '';
         for (let h = 0; h < 24; h++) {
           for (let m = 0; m < 60; m++) {
@@ -33,10 +33,11 @@
               .padStart(2, '0')}</td>`;
             for (const lang of langs) {
               const pack = languagePackOpjects.get(lang);
-              res += `<td>${pack.timeString(h, m)}</td><td>${renderedTime(
+              res += `<td>${pack.timeString(h, m, {round})}</td><td>${renderedTime(
                 pack,
                 h,
-                m
+                m,
+                round
               )}</td>`;
             }
             res += '</tr>';
@@ -45,8 +46,8 @@
         return res;
       }
 
-      function renderedTime(pack, h, m) {
-        const timeString = pack.timeString(h, m);
+      function renderedTime(pack, h, m, round) {
+        const timeString = pack.timeString(h, m, {round});
         const lines = pack.letterSet.map((line) => line.join(''));
         const renderedWords = timeString.split(' ');
         let res = [];
@@ -87,7 +88,19 @@
           </tr>
         </thead>
         <tbody>
-          ${renderTable(langs)}  
+          ${renderTable(langs, false)}
+        </tbody>
+        <thead>
+          <tr>
+            <th rowspan=2>Rounded Time</th>
+            ${langs.map((lang) => `<th colspan=2>${lang}</th>`).join('')}
+          </tr>
+          <tr>
+            ${langs.map((lang) => `<th>Wanted</th><th>Rendered</th>`).join('')}
+          </tr>
+        </thead>
+        <tbody>
+          ${renderTable(langs, true)}
         </tbody>
         `;
         table.innerHTML = tableContent;

@@ -29,6 +29,10 @@ wc_addLanguagePack({
   ],
   timeString: function(h, m, settings = { round: false }) {
     var ret = 'ES IST ';
+
+    if(settings.round && m>57) {
+      h+=1;
+    }
     var h24 = h;
     h %= 12;
     if (h == 0) h = 12;
